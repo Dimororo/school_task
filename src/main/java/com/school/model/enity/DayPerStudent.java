@@ -1,4 +1,4 @@
-package com.school.enity;
+package com.school.model.enity;
 
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
@@ -15,27 +15,22 @@ import java.util.UUID;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(exclude = "lessonsClass")
-@ToString(exclude = "lessonsClass")
+@EqualsAndHashCode()
+@ToString()
 @Entity
 @Table(name = "Class")
-public class Teacher {
+public class DayPerStudent {
 
     @Id
     @GenericGenerator(name = "uuid-gen", strategy = "uuid2")
     @GeneratedValue(generator = "uuid-gen")
     @Column(name = "UUID")
-    private UUID teacherId;
+    private UUID dayPerStudentId;
 
-    @Column(name = "First_Name")
-    private String firstName;
+    @Column(name = "S")
+    private Student student;
 
-    @Column(name = "Last_Name")
-    private String lastName;
+    private DayMetadata dayMetadata;
 
-    @Column(name = "Teacher_Class")
-    private Class teacherClass;
-
-    @Column(name = "Class")
-    private Set<Class> lessonsClass;
+    private Set<LessonPerStudent> lessonPerStudents;
 }

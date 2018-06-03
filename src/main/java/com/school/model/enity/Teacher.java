@@ -1,10 +1,9 @@
-package com.school.enity;
+package com.school.model.enity;
 
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.time.DayOfWeek;
 import java.util.Set;
 import java.util.UUID;
 
@@ -16,25 +15,27 @@ import java.util.UUID;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode()
-@ToString()
+@EqualsAndHashCode(exclude = "lessonsClass")
+@ToString(exclude = "lessonsClass")
 @Entity
 @Table(name = "Class")
-public class DayMetadata {
+public class Teacher {
 
     @Id
     @GenericGenerator(name = "uuid-gen", strategy = "uuid2")
     @GeneratedValue(generator = "uuid-gen")
     @Column(name = "UUID")
-    private UUID dayMetadataId;
+    private UUID teacherId;
 
-    @Column(name = "Day_Of_Week")
-    private DayOfWeek dayOfWeek;
+    @Column(name = "First_Name")
+    private String firstName;
 
-    @Column(name="Lessons_Metadata")
-    private Set<LessonMetadata> lessonMetadatas;
+    @Column(name = "Last_Name")
+    private String lastName;
 
-    @Column(name = "Day_Pes_Student")
-    private Set<DayPerStudent>  dayPerStudents;
+    @Column(name = "Teacher_Class")
+    private Class teacherClass;
 
+    @Column(name = "Class")
+    private Set<Class> lessonsClass;
 }

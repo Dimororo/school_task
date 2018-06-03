@@ -1,4 +1,4 @@
-package com.school.enity;
+package com.school.model.enity;
 
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;

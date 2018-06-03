@@ -23,8 +23,8 @@ import java.util.UUID;
 public class DayMetadata {
 
     @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid")
+    @GenericGenerator(name = "uuid-gen", strategy = "uuid2")
+    @GeneratedValue(generator = "uuid-gen")
     @Column(name = "UUID")
     private UUID dayMetadataId;
 

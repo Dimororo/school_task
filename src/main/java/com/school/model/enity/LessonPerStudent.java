@@ -16,18 +16,22 @@ import java.util.UUID;
 @EqualsAndHashCode()
 @ToString()
 @Entity
-@Table(name = "Class")
+@Table(name = "Lesson_Per_Student")
 public class LessonPerStudent {
 
     @Id
     @GenericGenerator(name = "uuid-gen", strategy = "uuid2")
     @GeneratedValue(generator = "uuid-gen")
-    @Column(name = "UUID")
+    @Column(name = "Lesson_Per_Student_UUID")
     private UUID lessonPerStudentID;
 
+    @ManyToOne
+    @JoinColumn(name = "Lesson_Metadata_UUID")
     @Column(name = "Lesson_Metadata")
     private LessonMetadata lessonMetadata;
 
+    @ManyToOne
+    @JoinColumn(name = "Day_Per_Student_UUID")
     @Column(name = "Day_Per_Student")
     private DayPerStudent dayPerStudent;
 

@@ -25,15 +25,21 @@ public class LessonPerStudent {
     @Column(name = "UUID")
     private UUID lessonPerStudentID;
 
+    @Column(name = "Lesson_Metadata")
     private LessonMetadata lessonMetadata;
 
+    @Column(name = "Day_Per_Student")
     private DayPerStudent dayPerStudent;
 
+    @Column(name = "Hometask")
     private String hometask;
 
+    @Column(name = "Home_Mark")
     private int homeMark;
 
+    @Column(name = "Class_Mark")
     private int classMark;
 
+    @Column(name = "Is_Avaible")
     private boolean isAvaible;
 }

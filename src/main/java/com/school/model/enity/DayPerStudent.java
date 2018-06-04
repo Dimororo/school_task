@@ -27,10 +27,13 @@ public class DayPerStudent {
     @Column(name = "UUID")
     private UUID dayPerStudentId;
 
-    @Column(name = "S")
+    @OneToOne
+    @Column(name = "Student")
     private Student student;
 
+    @Column(name = "Dat_Metadata")
     private DayMetadata dayMetadata;
 
+    @Column(name = "Lesson_Per_Students")
     private Set<LessonPerStudent> lessonPerStudents;
 }

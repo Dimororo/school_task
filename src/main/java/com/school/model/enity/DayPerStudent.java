@@ -18,27 +18,19 @@ import java.util.UUID;
 @EqualsAndHashCode()
 @ToString()
 @Entity
-@Table(name = "Day_Per_Student")
+@Table(name = "Class")
 public class DayPerStudent {
 
     @Id
     @GenericGenerator(name = "uuid-gen", strategy = "uuid2")
     @GeneratedValue(generator = "uuid-gen")
-    @Column(name = "Day_Per_Student_UUID")
+    @Column(name = "UUID")
     private UUID dayPerStudentId;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "Student_UUID")
-    @Column(name = "Student")
+    @Column(name = "S")
     private Student student;
 
-    @ManyToOne
-    @JoinColumn(name = "Day_Metadata_UUID")
-    @Column(name = "Day_Metadata")
     private DayMetadata dayMetadata;
 
-    @OneToMany
-    @JoinColumn(name = "Lesson_Per_Student_UUID")
-    @Column(name = "Lesson_Per_Student")
     private Set<LessonPerStudent> lessonPerStudents;
 }

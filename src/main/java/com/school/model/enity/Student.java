@@ -4,7 +4,6 @@ import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.util.Set;
 import java.util.UUID;
 
 /**
@@ -18,13 +17,13 @@ import java.util.UUID;
 @EqualsAndHashCode(exclude = {"studentClass"})
 @ToString(exclude = {"studentClass"})
 @Entity
-@Table(name = "Student")
+@Table(name = "Class")
 public class Student {
 
     @Id
     @GenericGenerator(name = "uuid-gen", strategy = "uuid2")
     @GeneratedValue(generator = "uuid-gen")
-    @Column(name = "Student_UUID")
+    @Column(name = "UUID")
     private UUID studentId;
 
     @Column(name = "First_Name")
@@ -33,14 +32,7 @@ public class Student {
     @Column(name = "Last_Name")
     private String lastName;
 
-    @OneToOne
-    @JoinColumn(name = "Class_UUID")
     @Column(name = "Class")
     private Class studentClass;
-
-    @OneToMany
-    @JoinColumn(name = "Day_Per_Student_UUID")
-    @Column(name = "Day_Per_Student")
-    private Set<DayPerStudent> dayPerStudents;
 
 }

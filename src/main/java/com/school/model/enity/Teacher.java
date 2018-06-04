@@ -18,13 +18,13 @@ import java.util.UUID;
 @EqualsAndHashCode(exclude = "lessonsClass")
 @ToString(exclude = "lessonsClass")
 @Entity
-@Table(name = "Class")
+@Table(name = "Teacher")
 public class Teacher {
 
     @Id
     @GenericGenerator(name = "uuid-gen", strategy = "uuid2")
     @GeneratedValue(generator = "uuid-gen")
-    @Column(name = "UUID")
+    @Column(name = "Teacher_UUID")
     private UUID teacherId;
 
     @Column(name = "First_Name")
@@ -36,6 +36,8 @@ public class Teacher {
     @Column(name = "Teacher_Class")
     private Class teacherClass;
 
+    @OneToMany
+    @JoinColumn(name = "Class_UUID")
     @Column(name = "Class")
     private Set<Class> lessonsClass;
 }

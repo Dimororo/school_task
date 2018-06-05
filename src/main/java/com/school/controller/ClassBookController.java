@@ -36,9 +36,9 @@ public class ClassBookController {
         this.studentRepository = studentRepository;
     }
 
-    @RequestMapping(value = "/saveStudent", method = RequestMethod.POST)
-    @ResponseStatus(value = HttpStatus.OK)
-    public void saveMessageToCache(@RequestBody StudentDTO student) {
-        studentRepository.save(null);
-    }
+//    @RequestMapping(value = "/saveStudent", method = RequestMethod.POST)
+//    @ResponseStatus(value = HttpStatus.OK)
+//    public void saveMessageToCache(@RequestBody StudentDTO student) {
+//        studentRepository.save(null);
+//    }
 }
